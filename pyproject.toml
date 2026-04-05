@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "pisos-scraper"
+version = "1.0.0"
+description = "Web scraper for pisos.com real estate listings in Barcelona — UOC MSc Data Science, Practica 1"
+authors = ["Gerard Ginés Pérez", "Guillem Maluenda"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "pisos_scraper", from = "source"}]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+scrapy = "^2.14"
+pandas = "^2.2"
+
+[tool.poetry.group.dev.dependencies]
+ipython = "^8.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
