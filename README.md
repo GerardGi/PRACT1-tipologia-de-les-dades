@@ -2,7 +2,7 @@
 
 **Autors:** Gerard Gines Perez, Guillem Maluenda  
 **Assignatura:** Tipologia i cicle de vida de les dades — UOC, MSc Data Science  
-**DOI Zenodo:** `[19429081](https://doi.org/10.5281/zenodo.19429081)`
+**DOI Zenodo:** `https://doi.org/10.5281/zenodo.19429081`
 
 ## Descripcio
 
