@@ -16,6 +16,27 @@ Scraper de [pisos.com](https://www.pisos.com) que extreu anuncis de venda d'habi
 - **Mode rapid** (per defecte): extreu dades de les cards del llistat. 30 anuncis per request, ~300 anuncis en <30 segons.
 - **Mode detall** (`--with-details`): visita cada anunci per obtenir camps addicionals (certificat energetic, descripcio completa, caracteristiques com ascensor/terrassa).
 
+## Estructura del repositori
+
+```
+PRACT1-tipologia-de-les-dades/
+├── README.md                              # Aquest document
+├── pyproject.toml                         # Dependències del projecte (Poetry)
+├── poetry.lock                            # Versions exactes de les dependències
+├── dataset/                               # Datasets generats (CSV)
+│   └── pisos_<loc>_<timestamp>.csv        # Fitxer de sortida del scraper
+├── docs/                                  # Documentació addicional
+└── source/
+    ├── run_scraper.py                     # Punt d'entrada principal (CLI)
+    ├── scrapy.cfg                         # Configuració de Scrapy
+    └── pisos_scraper/
+        ├── settings.py                    # Configuració del projecte Scrapy
+        ├── items.py                       # Definició dels camps extrets
+        ├── pipelines.py                   # Pipeline d'exportació a CSV
+        └── spiders/
+            └── pisos_spider.py            # Spider principal de pisos.com
+```
+
 ## Installacio
 
 ```bash
@@ -64,7 +85,9 @@ poetry run python source/run_scraper.py --min-area 120 --min-price 500000
 
 ## Dataset
 
-31 camps per anunci:
+**DOI:** [10.5281/zenodo.19429081](https://doi.org/10.5281/zenodo.19429081)
+
+34 camps per anunci:
 
 | Camp | Font | Descripcio |
 |---|---|---|
@@ -89,11 +112,11 @@ poetry run python source/run_scraper.py --min-area 120 --min-price 500000
 | `has_parking` | detall | Garatge |
 | `energy_cert` | detall | Certificat energetic |
 | `condition` | detall | Estat conservacio |
-| ... | | (31 camps total) |
+| ... | | (34 camps total) |
 
 ## Consideracions etiques
 
-- Delays de 1.5-3s entre requests, 2 concurrents maxim.
+- Delays de 0.5-1.5s entre requests, 4 concurrents maxim.
 - Rotacio d'user-agents.
 - Volum limitat: centenars d'anuncis, no extraccio massiva.
 - Nomes dades publiques visibles a qualsevol visitant.
