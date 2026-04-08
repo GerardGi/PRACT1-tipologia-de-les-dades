@@ -64,7 +64,7 @@ poetry run python source/run_scraper.py --min-area 120 --min-price 500000
 
 ## Dataset
 
-31 camps per anunci:
+34 camps per anunci:
 
 | Camp | Font | Descripcio |
 |---|---|---|
@@ -89,11 +89,11 @@ poetry run python source/run_scraper.py --min-area 120 --min-price 500000
 | `has_parking` | detall | Garatge |
 | `energy_cert` | detall | Certificat energetic |
 | `condition` | detall | Estat conservacio |
-| ... | | (31 camps total) |
+| ... | | (34 camps total) |
 
 ## Consideracions etiques
 
-- Delays de 1.5-3s entre requests, 2 concurrents maxim.
+- Delays de 0.5-1.5s entre requests, 4 concurrents maxim.
 - Rotacio d'user-agents.
 - Volum limitat: centenars d'anuncis, no extraccio massiva.
 - Nomes dades publiques visibles a qualsevol visitant.
